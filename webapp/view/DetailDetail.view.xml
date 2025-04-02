@@ -1,0 +1,72 @@
+<mvc:View
+    controllerName="de.gambit.sap.escaperoom.controller.DetailDetail"
+    busyIndicatorDelay="0"
+    xmlns="sap.f"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <DynamicPage toggleHeaderOnTitleClick="false">
+        <title>
+            <DynamicPageTitle>
+                <heading>
+                    <m:FlexBox
+                        wrap="Wrap"
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <m:Avatar
+                            class="sapUiMediumMarginEnd"
+                            src="{ path: 'Category/Picture', formatter: '.formatPictureSrc' }"
+                            displaySize="XL"
+                            showBorder="true"
+                        />
+                        <m:Title
+                            text="{ProductName} ({ProductID})"
+                            wrapping="true"
+                        />
+                    </m:FlexBox>
+                </heading>
+            </DynamicPageTitle>
+        </title>
+        <content>
+            <form:SimpleForm
+                maxContainerCols="2"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanL="12"
+                labelSpanM="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="2"
+                columnsM="2"
+            >
+                <form:content>
+                    <core:Title text="Product Details" />
+                    <m:Label text="Quantity Per Unit" />
+                    <m:Text text="{/QuantityPerUnit}" />
+
+                    <m:Label text="Unit Price" />
+                    <m:ObjectNumber
+                        number="{
+                            parts:[{path:'UnitPrice'},{value:'EUR'}],
+                            type: 'sap.ui.model.type.Money',
+                            formatOptions: {showMeasure: false}
+                        }"
+                        unit="EUR"
+                    />
+
+                    <m:Label text="Units In Stock" />
+                    <m:Text text="{/UnitsInStock}" />
+
+                    <core:Title text="Category" />
+                    <m:Label text="Customer ID" />
+                    <m:Text text="{Category/CategoryName}" />
+
+                    <m:Label text="Order Date" />
+                    <m:Text text="{Category/Description}" />
+                </form:content>
+            </form:SimpleForm>
+        </content>
+    </DynamicPage>
+</mvc:View>

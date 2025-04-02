@@ -1,0 +1,14 @@
+<mvc:View
+    controllerName="de.gambit.sap.escaperoom.controller.App"
+    displayBlock="true"
+    height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns="sap.m"
+>
+    <f:FlexibleColumnLayout
+		id="fcl_but_broken"
+		stateChange=".onStateChanged"
+		backgroundDesign="Solid"
+		layout="{layout>/layout}"/>
+</mvc:View>
